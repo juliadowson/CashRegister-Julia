@@ -36,21 +36,30 @@ namespace CashRegister
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
-            burgerNumber = Convert.ToInt32(burgersInput.Text);
-            friesNumber = Convert.ToInt32(friesInput.Text);
-            drinksNumber = Convert.ToInt32(drinksInput.Text);
-            subTotal = burger * burgerNumber + fries * friesNumber + drinks * drinksNumber;
+            try
+            {
 
-            tax = taxRate * subTotal;
-            totalCost = tax + subTotal;
+                burgerNumber = Convert.ToInt32(burgersInput.Text);
+                friesNumber = Convert.ToInt32(friesInput.Text);
+                drinksNumber = Convert.ToInt32(drinksInput.Text);
+                subTotal = burger * burgerNumber + fries * friesNumber + drinks * drinksNumber;
 
-            subtotalLabel.Text = $"{subTotal.ToString("C")} \n\n {tax.ToString("C")} \n\n {totalCost.ToString("C")}";
-            
+                tax = taxRate * subTotal;
+                totalCost = tax + subTotal;
+
+                subtotalLabel.Text = $"{subTotal.ToString("C")} \n\n {tax.ToString("C")} \n\n {totalCost.ToString("C")}";
+            }
+
+            catch {
+                reciptLabel.Show();
+                reciptLabel.Text = "Please only input numbers"; 
+
+              }
         }
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            tendered = Convert.ToInt32(tenderingInput.Text);
+            tendered = Convert.ToInt32(tenderingInput.Text); 
             change = tendered - totalCost;
             changeLabel.Text = $"{change.ToString("C")}";
         }
@@ -95,6 +104,11 @@ namespace CashRegister
             burgerNumber = 0;
             friesNumber = 0;
             drinksNumber = 0;
+            tax = 0;
+            subTotal = 0;
+            totalCost = 0;
+            tendered = 0;
+            change = 0;
             subtotalLabel.Text = "";
             changeLabel.Text = "";
             reciptLabel.Text = "";
