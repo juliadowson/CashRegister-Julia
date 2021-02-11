@@ -69,7 +69,7 @@ namespace CashRegister
                 tax = taxRate * subTotal;
                 totalCost = tax + subTotal;
 
-                subtotalLabel.Text = $"{subTotal.ToString("C")} \n\n {tax.ToString("C")} \n\n {totalCost.ToString("C")}";
+                totalTaxLabel.Text = $"{subTotal.ToString("C")} \n\n {tax.ToString("C")} \n\n {totalCost.ToString("C")}";
             }
 
             catch 
@@ -88,7 +88,7 @@ namespace CashRegister
             {
                 tendered = Convert.ToDouble(tenderingInput.Text);
                 change = tendered - totalCost;
-                changeLabel.Text = $"{change.ToString("C")}";
+                changeTotalLabel.Text = $"{change.ToString("C")}";
             }
             catch
             {
@@ -148,6 +148,7 @@ namespace CashRegister
         //New order happens below. All the variables and textboxes are cleared.
         private void newButton_Click(object sender, EventArgs e)
         {
+            receiptLabel.Hide();           
             weaponNumber = 0;
             woodNumber = 0;
             minedNumber = 0;
@@ -156,8 +157,8 @@ namespace CashRegister
             totalCost = 0;
             tendered = 0;
             change = 0;
-            subtotalLabel.Text = "";
-            changeLabel.Text = "";
+            totalTaxLabel.Text = "";
+            changeTotalLabel.Text = "";
             receiptLabel.Text = "";
             weaponsInput.Text = "";
             woodInput.Text = "";
