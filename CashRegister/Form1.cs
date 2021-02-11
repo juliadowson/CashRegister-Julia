@@ -111,6 +111,7 @@ namespace CashRegister
             orderName = ordernameInput.Text;
             reciptButton.Enabled = false;
             pricesButton.Enabled = false;
+            newButton.Enabled = false;
 
             SoundPlayer receipt = new SoundPlayer(Properties.Resources.receipt);
             receipt.Play();
@@ -154,8 +155,8 @@ namespace CashRegister
             Thread.Sleep(1000);
             receiptLabel.Text += $"\n\nOrder name: {orderName}";
 
-            
 
+            newButton.Enabled = true;
         }
 
         //New order happens below. All the variables and textboxes are cleared.
