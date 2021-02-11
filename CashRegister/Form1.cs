@@ -1,7 +1,8 @@
 ﻿/*Julia Dowson
- * Mr. T
- * ICS3U
- * February 11, 2021 */
+ Mr. T
+ ICS3U
+ February 11, 2021 
+ A basic cash register code for a small Minecraft shop. A receipt can also be printed.*/
  
 
 using System;
@@ -33,6 +34,7 @@ namespace CashRegister
         double totalCost;
         double tendered;
         double change;
+        string orderName;
         
 
     
@@ -40,6 +42,16 @@ namespace CashRegister
         {
             InitializeComponent();
             receiptLabel.Hide();
+        }
+
+        //Prices of the items can be shown.
+        private void pricesButton_Click(object sender, EventArgs e)
+        {
+            receiptLabel.Show();
+            receiptLabel.Text = $"\n    Minecraft Inventory " +
+                $"\n\nWeapons:       {weapon.ToString("C")} each" +
+                $"\nWood blocks:   {wood.ToString("C")} each" +
+                $"\nMined blocks:  {mined.ToString("C")} each";
         }
 
         private void calculateButton_Click(object sender, EventArgs e)
@@ -59,11 +71,12 @@ namespace CashRegister
                 subtotalLabel.Text = $"{subTotal.ToString("C")} \n\n {tax.ToString("C")} \n\n {totalCost.ToString("C")}";
             }
 
-            catch {
+            catch 
+            {
                 receiptLabel.Show();
                 receiptLabel.Text = "Please only input numbers"; 
 
-              }
+            }
         }
 
         //The change is calculated below.
@@ -85,11 +98,13 @@ namespace CashRegister
         //The recipt is printed below. Each line is printed at a time.
         private void reciptButton_Click(object sender, EventArgs e)
         {
+            orderName = ordernameInput.Text;
+            
             SoundPlayer receipt = new SoundPlayer(Properties.Resources.receipt);
             receipt.Play();
 
             receiptLabel.Show();
-            receiptLabel.Text = $"\n    Minecraft Inventory ";
+            receiptLabel.Text = $"\n     Minecraft Inventory ";
             Refresh();
             Thread.Sleep(1000);
             receiptLabel.Text += $"\n\nWeapon:         x{ weaponNumber} @ { weapon.ToString("C")}";
@@ -117,6 +132,13 @@ namespace CashRegister
             Refresh();
             Thread.Sleep(1000);
             receiptLabel.Text += $"\n\nHave a great day!";
+            Refresh();
+            Thread.Sleep(1000);
+            receiptLabel.Text += $"\n\nDate: {DateTime.Now.ToString()}";
+            Refresh();
+            Thread.Sleep(1000);
+            receiptLabel.Text += $"\n\nOrder name: {orderName}";
+
 
 
         }
@@ -138,6 +160,7 @@ namespace CashRegister
             woodInput.Text = "";
             minedInput.Text = "";
             tenderingInput.Text = "";
+            ordernameInput.Text = "";
         }
     }
 }
