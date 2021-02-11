@@ -1,7 +1,7 @@
 ﻿
 namespace CashRegister
 {
-    partial class Form1
+    partial class Minecraft
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@ namespace CashRegister
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Minecraft));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.burgersInput = new System.Windows.Forms.TextBox();
-            this.friesInput = new System.Windows.Forms.TextBox();
-            this.drinksInput = new System.Windows.Forms.TextBox();
+            this.weaponsInput = new System.Windows.Forms.TextBox();
+            this.woodInput = new System.Windows.Forms.TextBox();
+            this.minedInput = new System.Windows.Forms.TextBox();
             this.calculateButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,76 +48,76 @@ namespace CashRegister
             this.subtotalLabel = new System.Windows.Forms.Label();
             this.tenderingInput = new System.Windows.Forms.TextBox();
             this.changeLabel = new System.Windows.Forms.Label();
-            this.reciptLabel = new System.Windows.Forms.Label();
+            this.receiptLabel = new System.Windows.Forms.Label();
             this.newButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(-1, 9);
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(-8, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(718, 40);
+            this.label1.Size = new System.Drawing.Size(697, 64);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Burger Town";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Text = "Minecraft Inventory Shop";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 24);
+            this.label2.Size = new System.Drawing.Size(167, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Number of Burgers:";
+            this.label2.Text = "Number of Weapons:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 131);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 24);
+            this.label3.Size = new System.Drawing.Size(196, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Number of Fries:";
+            this.label3.Text = "Number of Wood Blocks:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 179);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 24);
+            this.label4.Size = new System.Drawing.Size(198, 20);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Number of Drinks:";
+            this.label4.Text = "Number of Mined Blocks:";
             // 
-            // burgersInput
+            // weaponsInput
             // 
-            this.burgersInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.burgersInput.Location = new System.Drawing.Point(217, 84);
-            this.burgersInput.Name = "burgersInput";
-            this.burgersInput.Size = new System.Drawing.Size(100, 27);
-            this.burgersInput.TabIndex = 4;
+            this.weaponsInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weaponsInput.Location = new System.Drawing.Point(228, 78);
+            this.weaponsInput.Name = "weaponsInput";
+            this.weaponsInput.Size = new System.Drawing.Size(100, 27);
+            this.weaponsInput.TabIndex = 4;
             // 
-            // friesInput
+            // woodInput
             // 
-            this.friesInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.friesInput.Location = new System.Drawing.Point(217, 131);
-            this.friesInput.Name = "friesInput";
-            this.friesInput.Size = new System.Drawing.Size(100, 27);
-            this.friesInput.TabIndex = 5;
+            this.woodInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.woodInput.Location = new System.Drawing.Point(228, 128);
+            this.woodInput.Name = "woodInput";
+            this.woodInput.Size = new System.Drawing.Size(100, 27);
+            this.woodInput.TabIndex = 5;
             // 
-            // drinksInput
+            // minedInput
             // 
-            this.drinksInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drinksInput.Location = new System.Drawing.Point(217, 179);
-            this.drinksInput.Name = "drinksInput";
-            this.drinksInput.Size = new System.Drawing.Size(100, 27);
-            this.drinksInput.TabIndex = 6;
+            this.minedInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minedInput.Location = new System.Drawing.Point(228, 172);
+            this.minedInput.Name = "minedInput";
+            this.minedInput.Size = new System.Drawing.Size(100, 27);
+            this.minedInput.TabIndex = 6;
             // 
             // calculateButton
             // 
@@ -224,14 +225,14 @@ namespace CashRegister
             this.changeLabel.Size = new System.Drawing.Size(100, 23);
             this.changeLabel.TabIndex = 19;
             // 
-            // reciptLabel
+            // receiptLabel
             // 
-            this.reciptLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.reciptLabel.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reciptLabel.Location = new System.Drawing.Point(350, 84);
-            this.reciptLabel.Name = "reciptLabel";
-            this.reciptLabel.Size = new System.Drawing.Size(305, 469);
-            this.reciptLabel.TabIndex = 20;
+            this.receiptLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.receiptLabel.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptLabel.Location = new System.Drawing.Point(350, 84);
+            this.receiptLabel.Name = "receiptLabel";
+            this.receiptLabel.Size = new System.Drawing.Size(305, 469);
+            this.receiptLabel.TabIndex = 20;
             // 
             // newButton
             // 
@@ -244,13 +245,13 @@ namespace CashRegister
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
-            // Form1
+            // Minecraft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 615);
             this.Controls.Add(this.newButton);
-            this.Controls.Add(this.reciptLabel);
+            this.Controls.Add(this.receiptLabel);
             this.Controls.Add(this.changeLabel);
             this.Controls.Add(this.tenderingInput);
             this.Controls.Add(this.subtotalLabel);
@@ -262,15 +263,16 @@ namespace CashRegister
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.calculateButton);
-            this.Controls.Add(this.drinksInput);
-            this.Controls.Add(this.friesInput);
-            this.Controls.Add(this.burgersInput);
+            this.Controls.Add(this.minedInput);
+            this.Controls.Add(this.woodInput);
+            this.Controls.Add(this.weaponsInput);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Cash Register";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Minecraft";
+            this.Text = "Minecraft Shop";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,9 +284,9 @@ namespace CashRegister
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox burgersInput;
-        private System.Windows.Forms.TextBox friesInput;
-        private System.Windows.Forms.TextBox drinksInput;
+        private System.Windows.Forms.TextBox weaponsInput;
+        private System.Windows.Forms.TextBox woodInput;
+        private System.Windows.Forms.TextBox minedInput;
         private System.Windows.Forms.Button calculateButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -296,7 +298,7 @@ namespace CashRegister
         private System.Windows.Forms.Label subtotalLabel;
         private System.Windows.Forms.TextBox tenderingInput;
         private System.Windows.Forms.Label changeLabel;
-        private System.Windows.Forms.Label reciptLabel;
+        private System.Windows.Forms.Label receiptLabel;
         private System.Windows.Forms.Button newButton;
     }
 }

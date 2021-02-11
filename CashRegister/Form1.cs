@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*Julia Dowson
+ * Mr. T
+ * ICS3U
+ * February 11, 2021 */
+ 
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,17 +14,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 
 namespace CashRegister
 {
-    public partial class Form1 : Form
+    public partial class Minecraft : Form
     { 
-        double burger = 6.00;
-        double fries = 4.50;
-        double drinks = 2.00;
-        double burgerNumber;
-        double friesNumber;
-        double drinksNumber;
+        //All the variables with costs were created. 
+        double weapon = 9;
+        double wood = 4;
+        double mined = 6;
+        double weaponNumber;
+        double woodNumber;
+        double minedNumber;
         double subTotal;
         double taxRate = 0.13;
         double tax;
@@ -28,21 +36,22 @@ namespace CashRegister
         
 
     
-        public Form1()
+        public Minecraft()
         {
             InitializeComponent();
-            reciptLabel.Hide();
+            receiptLabel.Hide();
         }
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
+            //If someone types something other than a number, an error is shown.
             try
             {
 
-                burgerNumber = Convert.ToInt32(burgersInput.Text);
-                friesNumber = Convert.ToInt32(friesInput.Text);
-                drinksNumber = Convert.ToInt32(drinksInput.Text);
-                subTotal = burger * burgerNumber + fries * friesNumber + drinks * drinksNumber;
+                weaponNumber = Convert.ToInt32(weaponsInput.Text);
+                woodNumber = Convert.ToInt32(woodInput.Text);
+                minedNumber = Convert.ToInt32(minedInput.Text);
+                subTotal = weapon * weaponNumber + wood * woodNumber + mined * minedNumber;
 
                 tax = taxRate * subTotal;
                 totalCost = tax + subTotal;
@@ -51,59 +60,72 @@ namespace CashRegister
             }
 
             catch {
-                reciptLabel.Show();
-                reciptLabel.Text = "Please only input numbers"; 
+                receiptLabel.Show();
+                receiptLabel.Text = "Please only input numbers"; 
 
               }
         }
 
+        //The change is calculated below.
         private void changeButton_Click(object sender, EventArgs e)
         {
-            tendered = Convert.ToInt32(tenderingInput.Text); 
-            change = tendered - totalCost;
-            changeLabel.Text = $"{change.ToString("C")}";
+            try
+            {
+                tendered = Convert.ToInt32(tenderingInput.Text);
+                change = tendered - totalCost;
+                changeLabel.Text = $"{change.ToString("C")}";
+            }
+            catch
+            {
+                receiptLabel.Show();
+                receiptLabel.Text = "Please only input numbers";
+            }
         }
 
+        //The recipt is printed below. Each line is printed at a time.
         private void reciptButton_Click(object sender, EventArgs e)
         {
-            reciptLabel.Show();
-            reciptLabel.Text = $"\n      Burger Time Inc. ";
+            SoundPlayer receipt = new SoundPlayer(Properties.Resources.receipt);
+            receipt.Play();
+
+            receiptLabel.Show();
+            receiptLabel.Text = $"\n    Minecraft Inventory ";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\n\nBurgers:  x{ burgerNumber} @ { burger.ToString("C")}";
+            receiptLabel.Text += $"\n\nWeapon:         x{ weaponNumber} @ { weapon.ToString("C")}";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\nFries:    x{friesNumber} @ {fries.ToString("C")}";
+            receiptLabel.Text += $"\nWood Blocks:    x{woodNumber} @ {wood.ToString("C")}";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\nDrinks:   x{drinksNumber} @ {drinks.ToString("C")}";
+            receiptLabel.Text += $"\nMined Blocks:   x{minedNumber} @ {mined.ToString("C")}";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\n\nSubtotal:      {subTotal.ToString("C")}";
+            receiptLabel.Text += $"\n\nSubtotal:            {subTotal.ToString("C")}";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\nTax:           {tax.ToString("C")}";
+            receiptLabel.Text += $"\nTax:                 {tax.ToString("C")}";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\nTotal:         {totalCost.ToString("C")}";
+            receiptLabel.Text += $"\nTotal:               {totalCost.ToString("C")}";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\n\nTendered:      {tendered.ToString("C")}";
+            receiptLabel.Text += $"\n\nTendered:            {tendered.ToString("C")}";
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\nChange:        {change.ToString("C")}"; 
+            receiptLabel.Text += $"\nChange:              {change.ToString("C")}"; 
             Refresh();
             Thread.Sleep(1000);
-            reciptLabel.Text += $"\n\nHave a great day!";
+            receiptLabel.Text += $"\n\nHave a great day!";
 
 
         }
-
+        //New order happens below. All the variables and textboxes are cleared.
         private void newButton_Click(object sender, EventArgs e)
         {
-            burgerNumber = 0;
-            friesNumber = 0;
-            drinksNumber = 0;
+            weaponNumber = 0;
+            woodNumber = 0;
+            minedNumber = 0;
             tax = 0;
             subTotal = 0;
             totalCost = 0;
@@ -111,10 +133,10 @@ namespace CashRegister
             change = 0;
             subtotalLabel.Text = "";
             changeLabel.Text = "";
-            reciptLabel.Text = "";
-            burgersInput.Text = "";
-            friesInput.Text = "";
-            drinksInput.Text = "";
+            receiptLabel.Text = "";
+            weaponsInput.Text = "";
+            woodInput.Text = "";
+            minedInput.Text = "";
             tenderingInput.Text = "";
         }
     }
