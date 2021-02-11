@@ -35,6 +35,7 @@ namespace CashRegister
         double tendered;
         double change;
         string orderName;
+        int orderNumber = 300;
         
 
     
@@ -42,6 +43,8 @@ namespace CashRegister
         {
             InitializeComponent();
             receiptLabel.Hide();
+            changeButton.Enabled = false;
+            reciptButton.Enabled = false;
         }
 
         //Prices of the items can be shown.
@@ -70,6 +73,8 @@ namespace CashRegister
                 totalCost = tax + subTotal;
 
                 totalTaxLabel.Text = $"{subTotal.ToString("C")} \n\n {tax.ToString("C")} \n\n {totalCost.ToString("C")}";
+                changeButton.Enabled = true;
+                calculateButton.Enabled = false;
             }
 
             catch 
@@ -95,13 +100,18 @@ namespace CashRegister
                 receiptLabel.Show();
                 receiptLabel.Text = "Please only input numbers";
             }
+            reciptButton.Enabled = true;
+            changeButton.Enabled = false;
+
         }
 
         //The recipt is printed below. Each line is printed at a time.
         private void reciptButton_Click(object sender, EventArgs e)
         {
             orderName = ordernameInput.Text;
-            
+            reciptButton.Enabled = false;
+            pricesButton.Enabled = false;
+
             SoundPlayer receipt = new SoundPlayer(Properties.Resources.receipt);
             receipt.Play();
 
@@ -139,16 +149,25 @@ namespace CashRegister
             receiptLabel.Text += $"\n\nDate: {DateTime.Now.ToString()}";
             Refresh();
             Thread.Sleep(1000);
+            receiptLabel.Text += $"\n\nOrder number: {orderNumber}";
+            Refresh();
+            Thread.Sleep(1000);
             receiptLabel.Text += $"\n\nOrder name: {orderName}";
 
-
+            
 
         }
 
         //New order happens below. All the variables and textboxes are cleared.
         private void newButton_Click(object sender, EventArgs e)
         {
+            orderNumber++;
+            calculateButton.Enabled = true;
+            pricesButton.Enabled = true;
+            reciptButton.Enabled = false;
+            changeButton.Enabled = false;
             receiptLabel.Hide();           
+            
             weaponNumber = 0;
             woodNumber = 0;
             minedNumber = 0;
