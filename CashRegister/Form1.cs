@@ -56,6 +56,7 @@ namespace CashRegister
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
+            receiptLabel.Hide();
             //If someone types something other than a number, an error is shown.
             try
             {
@@ -74,7 +75,7 @@ namespace CashRegister
             catch 
             {
                 receiptLabel.Show();
-                receiptLabel.Text = "Please only input numbers"; 
+                receiptLabel.Text = "Please only input whole numbers"; 
 
             }
         }
@@ -82,9 +83,10 @@ namespace CashRegister
         //The change is calculated below.
         private void changeButton_Click(object sender, EventArgs e)
         {
+            receiptLabel.Hide();
             try
             {
-                tendered = Convert.ToInt32(tenderingInput.Text);
+                tendered = Convert.ToDouble(tenderingInput.Text);
                 change = tendered - totalCost;
                 changeLabel.Text = $"{change.ToString("C")}";
             }
@@ -142,6 +144,7 @@ namespace CashRegister
 
 
         }
+
         //New order happens below. All the variables and textboxes are cleared.
         private void newButton_Click(object sender, EventArgs e)
         {

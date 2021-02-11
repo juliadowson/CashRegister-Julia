@@ -314,6 +314,7 @@ namespace CashRegister
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Minecraft";
+            this.Text = "Minecraft Shop";
             this.ResumeLayout(false);
             this.PerformLayout();
 
