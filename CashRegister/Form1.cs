@@ -94,14 +94,16 @@ namespace CashRegister
                 tendered = Convert.ToDouble(tenderingInput.Text);
                 change = tendered - totalCost;
                 changeTotalLabel.Text = $"{change.ToString("C")}";
+                reciptButton.Enabled = true;
             }
             catch
             {
                 receiptLabel.Show();
                 receiptLabel.Text = "Please only input numbers";
+                changeButton.Enabled = true;
             }
-            reciptButton.Enabled = true;
-            changeButton.Enabled = false;
+            
+            
 
         }
 
