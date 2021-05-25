@@ -168,7 +168,7 @@ namespace CashRegister
             calculateButton.Enabled = true;
             pricesButton.Enabled = true;
             reciptButton.Enabled = false;
-            changeButton.Enabled = false;
+            changeButton.Enabled = false; 
             receiptLabel.Hide();           
             
             weaponNumber = 0;
